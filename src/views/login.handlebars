@@ -1,0 +1,60 @@
+{{>menu}}
+<div id="contenedor">
+    <div id="central">
+        <div id="login">
+            <div class="titulo">
+                Bienvenido
+            </div>
+            <form action="/api/sessions/login" method="post">
+
+                {{#if error}}
+                <div style="color: red;">{{error}}</div>
+                <br>
+                {{/if}}
+
+                {{#if mensaje}}
+                <div style="color: green;">{{mensaje}}</div>
+                <br>
+                {{/if}}
+
+                <input type="email" name="email" class="email" placeholder="email">
+                <input type="password" name="password" class="pass" placeholder="password">
+                <br>
+                <input type="submit" class="my-button" value="Ingresar">
+
+            </form>
+            <div class="pie-form">
+                <a href="/api/sessions/github"><img alt="Acceso GitHub" src="img/github icon.png" width="40" height="40" /></a>
+                <br>
+                <a href="/register">¿No tienes Cuenta? Registrate</a>
+                <br>
+                <a onclick="showForm()"> ¿Olvidaste tu contraseña?</a>
+                <br>
+
+
+                <form id="forgetPass" action='/api/sessions/recupero01'  method="post"  style="display:none;">
+
+                    {{#if mensaje}}
+                    <div style="color: green;">{{mensajeRecover}}</div>
+                    {{/if}}
+
+                    <input type="text" name="email" placeholder="email" style="background-color: #fff6d0;">
+                    <input type="submit" value="Enviar" class="my-button">
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/login.js"></script>
+
+<script>
+
+    const showForm = async ()=>{
+        let forget_pass = document.getElementById("forgetPass");
+        forget_pass.style.display === "none"  ? forget_pass.style.display = "block": forget_pass.style.display = "none";
+    }
+
+</script>

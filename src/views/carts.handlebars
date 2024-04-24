@@ -1,0 +1,37 @@
+
+{{>menuCart}} 
+
+<h2 style="color: black; text-align: center; margin-top: 30px;">Shopping cart</h2>
+<div id="cart-container" class="cart-container">
+ 
+  {{#each cart.products}}
+   
+  
+    <div class="cart-content"> 
+      <img class="imgn" src="{{this.product.thumbnail}}">
+      <h3> {{this.product.title}}</h3>
+       
+      <div class="cart-content-cart"> 
+        <p> {{this.product.price}} $</p>
+        <button onclick="btnRest('{{this.product._id}}','{{../cart._id}}')" class="restar">➖</button>  <!-- <span class="restar">➖ </span> -->
+        <p>{{this.quantity}}</p>
+        <button onclick="btnSum('{{this.product._id}}','{{../cart._id}}')" class="sumar">➕</button>   <!--<span class="sumar">➕</span>-->
+        {{!-- <p> = {{multiply this.quantity this.product.price}}</p>  --}}
+        <button onclick="btnDelete('{{this.product._id}}','{{../cart._id}}')" class="delete-product">❌</button> 
+        <!--<span class="delete-product"> ❌ </span>-->
+      </div>
+    </div>
+  {{/each}}
+
+  {{!-- <p>{{this.cart._id}}</p> --}}
+
+  <button class="my-button" ><a href="/purchase/{{id}}">Finalizar compra</a></button>
+
+</div>
+
+<script src="js/cart.js"></script>
+
+
+
+
+

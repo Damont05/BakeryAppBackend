@@ -1,0 +1,26 @@
+<div class="nav-container">
+    <nav class="navbar">
+        <ul class="menu">
+            {{#if login}}
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+                <li>
+                    <a href="/api/sessions/logout">Logout</a>
+                </li>
+                <li>
+                    <a href="/chat">Chat</a>
+                </li>
+
+            {{else}}
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                <li>
+                    <a href="/register">Register</a>
+                </li>
+
+            {{/if}}
+        </ul>
+    </nav>
+</div>

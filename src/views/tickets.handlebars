@@ -1,0 +1,39 @@
+{{>menuCart}} 
+
+<br>
+<h1>Ticket de Compra</h1>
+
+<div style="text-align: center; background-color: #f8e7b6;"> 
+    <h2>Productos:</h2>
+    <br>
+    <ul>
+        {{#each products}}
+            <li>
+                <strong>{{ this.product.title }}</strong> - Precio: {{ this.product.price }} - Cantidad: {{ this.quantity }}
+            </li>
+        {{/each}}
+    </ul>
+
+    <br>
+    <br>
+    <br>
+    <h1>Total a Pagar: ${{ amount }}</h1>
+
+    {{#if noStock.length}}
+        <h2>Productos no disponibles:</h2>
+        <ul>
+            {{#each noStock}}
+                <li>{{ this.product.title }} - {{ this.product.description }}</li>
+            {{/each}}
+        </ul>
+        <p>Lo sentimos, estos productos no están disponibles en este momento. Te avisaremos cuando haya inventario.</p>
+    {{/if}}
+
+    <button onclick="order('{{purchaser}}', '{{amount}}')" class="my-button"><a href="/products">Pagar</a></button>
+
+</div>
+
+
+<script src="/js/order.js"></script>
+<!--Toastify js-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

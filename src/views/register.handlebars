@@ -1,0 +1,29 @@
+
+{{>menu}}
+
+<div id="contenedor">
+    <div id="central">
+        <div id="login">
+            <div class="titulo">
+                Register
+            </div>
+            <form action="/api/sessions/register" method="post">
+
+                {{#if error}}
+                    <div style="color: red;">{{error}}</div>
+                {{/if}}
+
+                <input type="text" name="first_name" class="name" placeholder="first_name">
+                <input type="text" name="last_name" class="name" placeholder="last_name">
+                <input type="email" name="email"  class="email" placeholder="email">
+                <input type="number" name="age" class="name" placeholder="age">
+                <input type="password" name="password" class="pass" placeholder="password">
+              
+                <br>
+                <input type="submit" class="my-button" value="Registrar">
+            </form>
+
+        </div>
+      
+    </div>
+</div>

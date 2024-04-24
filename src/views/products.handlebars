@@ -1,0 +1,47 @@
+<div class="container">
+
+        {{>menuMain}}
+          <!--banner-->
+          <div class="banner">
+            <div class="alert alert-success" role="alert">
+                
+            </div>
+            <div class="banner-container">
+              <div class="welcome">
+                <p></strong>Bienvenido {{user.first_name}}</strong></p>
+              </div>
+
+              <h1>Entreamasados</h1>
+              <p>Panaderia online, del horno a tu puerta</p>
+            </div>
+          </div>
+        <!--content-->
+        <div id="content" class="content-style">
+            {{#each products}}
+                  <div class="card">
+                      <img src="{{this.thumbnail}}">
+                      <h3 class="name-product">{{title}}</h3>
+                      <h6 class="weight">{{this.description}}</h6>
+                      <hr>
+                      <div class="price">${{this.price}}.0</div>
+                      <div class="agregar">
+                           <button onclick="buy('{{this._id}}', '{{../user.idc}}')">Buy</button>
+                      </div>
+                  </div>
+            {{/each}}
+        </div>
+
+        <!--cart-container-canasta-->
+        <div id="cart-container" class="cart-container"></div>
+        <!--cart-container-pay-->
+        <div id="container-pay" class="cart-container"></div>
+
+    </div>
+
+    <div id="sweetAlert"></div>
+
+
+
+<script src="js/products.js"></script>
+<!--Toastify js-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

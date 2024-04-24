@@ -1,0 +1,1111 @@
+body {
+    margin: 0px;
+}
+
+.divColor{
+  color: #00f900;
+}
+
+/*navbar*/
+.nav-container {
+    position: sticky;
+    z-index: 3;
+    top: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background-color:   #030303;
+    opacity: 0.9;
+}
+
+.menu li{
+  float: left;
+  font-weight: bold;
+
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 26px;
+  text-decoration: none;
+}
+
+li a:hover{
+  background-color: #fdc66f;
+  color:#000000;
+  font-weight: bold;
+}
+
+.menu{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+div.navbar-logo {
+    width: 60px;
+    height:40px;
+    display: table;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+div.navbar-menu {
+  width: 30%;
+  height:60px;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+div.navbar-menu a:hover {
+  cursor: pointer;
+  font-size: 20px;
+}
+div.navbar-menu a {
+  color:rgb(214, 204, 174)
+}
+
+.welcome{
+  width: 50%;
+  margin:auto;
+  margin-top: -100px;
+}
+
+div.navbar-logo img {
+   
+    margin-left: 30px;
+    display: block;
+    width: 200%;
+    height: auto;
+}
+
+.ver-carrito {
+    font-size: 25px;
+    margin-right: 20px;
+    margin-top: 3.5vh;
+    cursor: pointer;
+}
+
+.cart-header{
+    display: flex;
+    justify-content: space-around;
+    background-color:   #373125 ;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 9px;
+}
+.cart-header-title {
+    justify-self: start;
+}
+
+.cart-header-button {
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    width:  20%;
+    border: none;
+    color: red;
+}
+
+.cart-container{
+    width: 80%;
+    margin: 0 10%;
+    max-height: 88vh;
+    color: #fff;
+    background-color: #f8e7b6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*for the top*/
+    position: fixed;
+    overflow: auto;
+    z-index: 9;
+    margin-top: 40px;
+    padding-bottom: 30px;
+}
+
+.cart-container > .cart-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: 10px;
+}
+.cart-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-container > div > img {
+    height: 50px;
+    width: 50px;
+    border-radius: 60px;
+}
+
+.cart-content-cart{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 58px;
+    width: 80%;
+    margin-left: 80px;
+
+}
+
+
+  /*delete button product*/
+.delete-product {
+    cursor: pointer;
+}
+.delete-product:active {
+    box-shadow: 0 2px #fff4d5;
+    transform: translateY(5px);
+    color: #000000;
+}
+
+  /*CarritoCounter*/
+.cant-cart {
+    background-color: rgba(212, 212, 212, 0.206);
+    color: rgb(255, 229, 195);
+    border-radius: 60%;
+    font-size: 13px;
+    text-align: center;    
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    top: 45px;
+    right: 35px;
+    position: absolute;
+    display: none;
+}
+.sumar {
+    cursor: pointer;
+}
+.sumar:active {
+    box-shadow: 0 4px #00e548;
+    transform: translateY(5px);
+    color: #000000;
+}
+  
+.restar {
+    cursor: pointer;
+    color: red;
+}
+.restar:active {
+    box-shadow: 0 4px #ff0000;
+    transform: translateY(5px);
+    color: #000000;
+}
+.total-content {
+    font-size: 25px;
+    padding: 30px;
+    text-align: center;
+    padding-top: 20px;
+ 
+}
+
+.getCart {
+    
+    font-size: 30px;
+    margin-top: 4vh;
+    cursor: pointer;
+  }
+
+.getCart:hover{
+    opacity: 0.6;
+}
+
+.divCanasta{
+    margin-right: 30px;
+    text-align: right;
+    margin-top: 10px;
+  
+}
+
+.pay-button{
+    border: none;
+    outline: 0;
+    padding:7px;
+    color: #000000;
+    background-color: #ffeac4;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 44px;
+    margin-top: 20px;
+}
+.pay-button:hover{
+    opacity: 0.6;
+    background-color: #754f07;
+    color: #ffeac4;
+}
+.pay-button:active {
+    background-color: #9e5604;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    color: #000000;
+}
+    
+  /*Banner styles*/
+.banner {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("https://previews.123rf.com/images/kwanchaichaiudom/kwanchaichaiudom1711/kwanchaichaiudom171100026/91456666-panes-caseros-o-ingredientes-de-pan-croissant-y-panader%C3%ADa-en-el-fondo-de-madera-blanco-vista.jpg");
+}
+  
+.banner-container {
+    text-align: center;
+    padding: 15% 0;
+}
+  
+.banner h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 500%;
+    font-weight: bold;
+}
+.banner h1:hover {
+    font-size: 520%;
+}
+
+.banner p {
+    font-size: 30px;
+    color: white;
+    opacity: 0.7;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+  
+/*content*/
+.content-style {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-left: 80px;
+    margin: 10px;
+}
+.card{
+    max-width: 300px;
+    margin: auto;
+    text-align: left;
+    font-family: arial;
+    border-radius: 16px;
+    margin : 30px;
+    background-color: #ffffff;
+} 
+.card > img {
+    width: 220px;
+    height: 210px;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    border-top-right-radius: 3%;
+    border-top-left-radius: 3%;
+}
+.weight{
+    color: gray;
+    margin-top: -15px;
+    padding-left: 10px;
+
+}
+hr{
+    width:80%;
+    margin-top: -9px;
+    color: rgb(247, 136, 0);
+}
+.name-product{
+    padding-left: 10px;
+}
+.price {
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    margin: 12px;
+    margin-left: 20px;
+    float: left;
+
+}
+.agregar{
+    text-align: right;
+    margin: 12px;
+    margin-right: 20px;
+
+}
+.card button {
+    border: none;
+    outline: 0;
+    padding:7px;
+    color: #ffffff;
+    background-color: #000000;
+    text-align: center;
+    cursor: pointer;
+    width: 40%;
+    font-size: 18px;
+    border-radius: 44px;
+}
+.card button:hover{
+    opacity: 0.6;
+}
+.card button:active {
+    background-color: #9e5604;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    color: #000000;
+}
+
+
+.container{
+    background-image: url("https://img.freepik.com/fotos-premium/espigas-trigo-cerca-sobre-fondo-beige-planta-cereal-natural-concepto-tiempo-cosecha-endecha-plana_99432-6423.jpg?w=2000");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+body {
+    font-family: Arial;
+    font-size: 17px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+  
+  .col-25 {
+    -ms-flex: 25%; 
+    flex: 25%;
+  }
+  
+  .col-50 {
+    margin-top: 30px;
+    -ms-flex: 50%; 
+    flex: 50%;
+  }
+  
+  .col-75 {
+    -ms-flex: 75%;
+    flex: 75%;
+  }
+  
+  .col-25,
+  .col-50,
+  .col-75 {
+    padding: 0 16px;
+  }
+  
+  .containe {
+    background-color: #e41818;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+  
+  input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 44px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .year{
+    margin-top: 1px;
+  }
+
+  .cvv{
+
+    margin-top: -10px;
+    background-color: #e41818;
+  }
+
+ 
+  .icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+  }
+  
+  .btn {
+    outline: 0;
+    background-color: #754f07;
+    color: rgb(255, 255, 255);
+    padding: 12px;
+    border: none;
+    width: 80%;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 44px;
+    margin-top: 10px;
+
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  
+  a {
+    color: #2196F3;
+  }
+  
+  hr {
+    border: 1px solid lightgrey;
+  }
+  
+  span.price {
+    float: right;
+    color: grey;
+  }
+  .title-pay{
+    text-align: center;
+  }
+
+
+  /*Formulario de pago*/
+
+  .modal {
+    width: fit-content;
+    background-color: #9579672e;
+    height: fit-content;
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 26px;
+    max-width: 450px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .payment--options {
+    width: calc(100% - 40px);
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .payment--options button {
+    height: 55px;
+    background: #F2F2F2;
+    border-radius: 11px;
+    padding: 0;
+    border: 0;
+    outline: none;
+  }
+  
+  .payment--options button svg {
+    height: 18px;
+  }
+  
+  .payment--options button:last-child svg {
+    height: 22px;
+  }
+  
+  .separator {
+    width: calc(100% - 20px);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    color: #8B8E98;
+    margin: 0 10px;
+  }
+  
+  .separator > p {
+    word-break: keep-all;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    margin: auto;
+  }
+  
+  .separator .line {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background-color: #e8e8e8;
+    margin: auto;
+  }
+  
+  .credit-card-info--form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input_container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .split {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 15px;
+  }
+  
+  .split input {
+    width: 100%;
+  }
+  
+  .input_label {
+    font-size: 15px;
+    color: #8B8E98;
+    font-weight: 600;
+  }
+  
+  .input_field {
+    width: auto;
+    height: 40px;
+    padding: 0 0 0 16px;
+    border-radius: 9px;
+    outline: none;
+    background-color: #F2F2F2;
+    border: 1px solid #e5e5e500;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+  
+  .input_field:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 2px #242424;
+    background-color: transparent;
+  }
+  
+  .purchase--btn {
+    border: none;
+    outline: 0;
+    padding:7px;
+    color: #000000;
+    background-color: #ffeac4;    
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 44px;
+    margin-top: 20px;
+  }
+
+  
+  .purchase--btn:hover {
+    opacity: 0.6;
+    background-color: #754f07;
+    color: #ffffff;
+  }
+  .purchase--btn:active {
+    background-color: #9e5604;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    color: #000000;
+}
+
+  
+  /* Reset input number styles */
+  .input_field::-webkit-outer-spin-button,
+  .input_field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+
+   
+   /*FIN formulario de pago*/
+
+
+/*productos*/
+
+/* Estilos para la fuente y tamaño de fuente */
+body, h3, h4, p, li, a, input {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Estilos para el título */
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para la lista de usuarios */
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos para los elementos de la lista de usuarios */
+  li {
+    margin-bottom: 10px;
+  }
+  
+/* Estilos para los enlaces de paginación */
+a {
+  color: blue;
+  text-decoration: none;
+  margin-right: 20px;
+  text-align: center;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+
+
+  
+ 
+  
+  /*style paginate*/
+  .paginate{
+    width: 50%;    
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .paginate a {
+    color: #575454;
+  }
+
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+
+
+.contenedor-formularios {
+  background: #fafafa;
+  padding: 30px;
+  max-width: 500px;
+  height: 300px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px 4px;
+}
+
+.contenedor-tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+  
+    li a {
+        display: block;
+        text-decoration: none;
+        padding: 15px;
+        font-size: 20px;
+        float: left;
+        width: 50%;
+        text-align: center;
+        cursor: pointer;
+        transition: .5s ease;
+        
+    }
+    
+}
+
+.contenido-tab > div:last-child {
+    display: none;
+}
+
+
+h1 {
+    text-align: center;
+    margin: 0 0 40px;
+}
+
+label {
+    position: absolute;
+    transform: translateY(6px);
+    left: 13px;
+    transition: all 0.25s ease;
+    pointer-events: none;
+    font-size: 22px;
+    
+    
+}
+
+label.active {
+    transform: translateY(50px);
+    left: 2px;
+    font-size: 14px;
+    
+    .req {
+        opacity: 0;
+    }
+}
+
+
+input {
+    font-size: 22px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    background: none;
+    background-image: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    transition: all 0.5s ease;
+    border-radius: 5px;
+    
+}
+
+.contenedor-input {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.fila-arriba {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    div {
+        float: left;
+        width: 48%;
+        margin-right: 4%;
+        
+        &:last-child { 
+            margin: 0;
+        }
+    }
+}
+
+.button {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px 0;
+    font-size: 2rem;
+    transition: all .5s ease;    
+}
+
+.button-block {
+    display: block;
+    width: 100%;
+}
+
+.forgot {
+    margin-top: -20px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .fila-arriba {
+        div {
+            width: 100%;
+
+            &:last-child {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .contenedor-tabs {
+        li a {
+            width: 100%;
+        }
+    }
+}
+
+.title-login{
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  url("https://images.unsplash.com/photo-1523294587484-bae6cc870010?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGFuYWRlciVDMyVBRGF8ZW58MHx8MHx8fDA%3D");
+
+}
+
+  /* Banner styles
+  .banner {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("https://previews.123rf.com/images/kwanchaichaiudom/kwanchaichaiudom1711/kwanchaichaiudom171100026/91456666-panes-caseros-o-ingredientes-de-pan-croissant-y-panader%C3%ADa-en-el-fondo-de-madera-blanco-vista.jpg");
+} */
+
+#central {
+  max-width: 320px;
+  width: 100%;
+}
+
+.titulo {
+  font-size: 250%;
+  color:#000000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#login {
+  width: 100%;
+  padding: 50px 30px;
+  background-color: #f9dda5;
+  
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  
+  box-sizing: border-box;
+}
+
+#login input {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #2c1b2c;
+  
+  display: block;
+  width: 100%;
+  height: 40px;
+  
+  margin-bottom: 10px;
+  padding: 5px 5px 5px 10px;
+  
+  box-sizing: border-box;
+  
+  border: none;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+}
+
+#login input::placeholder {
+  font-family: 'Overpass', sans-serif;
+  color: #ffad5b;
+}
+
+#login button {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color:#1b262c;
+  width: 100%;
+  height: 40px;
+  border: none;
+  
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  
+  
+  margin-top: 10px;
+}
+
+#login button:hover {
+  background-color: #0f4c75;
+  color:#bbe1fa;
+}
+
+.pie-form {
+  font-size: 90%;
+  text-align: center;    
+  margin-top: 15px;
+}
+
+.pie-form a {
+  display: block;
+  text-decoration: none;
+  color: #004572;
+  margin-bottom: 3px;
+}
+
+.pie-form a:hover {
+  color: #0099ff;
+}
+
+.inferior {
+  margin-top: 10px;
+  font-size: 90%;
+  text-align: center;
+}
+
+.inferior a {
+  display: block;
+  text-decoration: none;
+  color: #bbe1fa;
+  margin-bottom: 3px;
+}
+
+.inferior a:hover {
+  color: #3282b8;
+}
+
+.email{
+  background-color: #fff6d0;
+}
+.pass{
+  background-color: #fff6d0;
+}
+.name{
+  background-color: #fff6d0;
+}
+
+.my-button {
+  padding: 10px 20px;
+  background-color: #ffd174;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.my-button:hover {
+  background-color: #ffbb00;
+}
+
+.my-button:active {
+  background-color: #fdf595;
+}
+
+
+
+.custom-select {
+  min-width: 180px;
+  position: relative;
+  margin-left: 10px;
+
+}
+
+select {
+  appearance: none;
+  /*  safari  */
+  -webkit-appearance: none;
+  /*  other styles for aesthetics */
+  width: 100%;
+  font-size: 0.99rem;
+  padding: 0.3em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #ffc78e;
+  cursor: pointer;
+  
+}
+
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
+}
