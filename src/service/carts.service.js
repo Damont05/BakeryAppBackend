@@ -45,9 +45,7 @@ export class CartService {
     async m_deleteProductFromCart(idc, idp){
         try {
 
-            console.log('idp service: ' , idp);
             let prdcart=  await cartDAO.deleteProductCart(idc,idp);
-            console.log("prdcart service: ", prdcart.modifiedCount);
 
             let prdcartresult= prdcart.modifiedCount;
 
@@ -57,5 +55,17 @@ export class CartService {
             return null
         }
     }
+
+
+    async m_get_s(){ 
+        try {
+            return await cartDAO.get();
+        } catch (e) {
+            throw new CustomError("Error CartDAO", e.message, e.codigo?e.codigo:TYPES_ERRORS.DATABASE, e.descrip
+            ?e.descrip:"Unexpected error, contact your administrator");
+        }
+    }
+
+    
 
 }

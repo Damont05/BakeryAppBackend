@@ -1,0 +1,112 @@
+paths:
+  /api/user/:
+    get:
+      security:
+        - basicAuth: []
+        - cookieAuth: []
+      summary: Obtiene todos los usuarios
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Los usuarios fueron obtenidos OK desde la DB
+    post:
+      summary: Graba un usuario
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/createUser'
+      responses:
+        "201":
+          description: Usuario creado
+        "400":
+          description: Faltan datos}
+  /api/user/:id:
+    get:
+      summary: Obtiene un  usuario por id
+      parameters:
+        - name: id
+          in: path
+          description: Id usuario a buscar
+          schema:
+            type : string
+            # format: int64
+            # minimum: 1         
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Los usuarios fueron obtenidos OK desde la DB
+
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          readOnly: true
+        name:
+          type: string
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        stock:
+          type: integer
+        precio:
+          type: float
+        imagen:
+          type: image
+    Cart:
+      type: object
+      properties:
+        id:
+          type: integer
+  requestBodies:
+    createUser:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: Nombre de usurio
+        last_name:
+          type: string
+          description: Apellido
+        email:
+          type: string
+          description: Correo del usuario
+        password:
+          type: string
+          description: Contraseña del usuario
+      example:
+        first_name: Test14
+        last_name: test14Apellido
+        email: test14@hotmail.com
+        password: 1234    
+        age: 55      
+  securitySchemes:
+    basicAuth:    
+      type: http
+      scheme: basic
+    bearerAuth:           
+      type: http
+      scheme: bearer
+      bearerFormat: JWT   
+    cookieAuth:         
+      type: apiKey
+      in: cookie
+      name: JSESSIONID  
+security:
+  - basicAuth: []  
+  - bearerAuth: []  
+  - cookieAuth: []

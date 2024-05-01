@@ -50,7 +50,6 @@ const transporteFile=new winston.transports.File(
 )
 
 if(config.MODE==="production"){
-    //console.log("ingreso")
     logger.add(transporteFile,transporteProd)
 }
 

@@ -1,5 +1,6 @@
 import { TYPES_ERRORS } from '../utils/errors.js';
 import { ProductService } from "../service/products.service.js";
+import { logger } from '../utils/loggers.js';
 
 const productService= new ProductService();
 
@@ -21,7 +22,6 @@ export class productsController {
             
         } catch (e) {
             res.status(500).json({ error: e});
-            console.log(e)
         }
     }
 
@@ -44,22 +44,40 @@ export class productsController {
                  return res.status(400).json({ ok:false, error: `El codigo de producto ' ${code} ' ya existe en BD` })
             }
 
-            //if (owner === 'admin') {
-            // console.log('owner: ', owner)
 
             let newProduct = {code, title, description, price, stock, category, thumbnail, owner}
              
-            console.log("newProduct: " , newProduct);
             await productService.m_addProduct_s(newProduct);
 
             res.status(201).json({ ok:true, message:'Product created', product:newProduct });
 
         } catch (e) {
             res.status(500).json({ error: e});
-            console.log(e)
         }
 
     }
+
+    static async getOneProduct(req, res) {
+        
+        try {
+            let { id } = req.params;
++
+            logger.debug("id: " , id)
+            let product = await  productService.m_getProductOne_s(id);
+
+            if(!product){
+                res.setHeader('Content-Type', 'application/json');
+                return res.status(500).json({"ok": false,error:`error inesperado en el server`})
+            }
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json({ ok:true, product});
+            
+        } catch (e) {
+            res.status(500).json({ error: e});
+        }
+    }
+    
 
 
     

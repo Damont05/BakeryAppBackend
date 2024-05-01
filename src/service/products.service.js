@@ -24,6 +24,15 @@ export class ProductService {
         }
     }
 
+    async m_getProductOne_s(id){
+        try {
+            const product = await productDAO.getOne(id);
+            return product;
+        } catch (e) {
+            logger.error(`Error m_getProduct_s: ` , e)
+        }
+    }
+
     async m_getProductCode_s(code){
         try {
             const products = await productDAO.getProductCode(code);

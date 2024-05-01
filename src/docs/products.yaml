@@ -1,0 +1,52 @@
+openapi: 3.0.0
+info:
+  title: API de Productos
+  version: 1.0.0
+  description: Documentación de las API de productos.
+paths:
+  /api/products:
+    get:
+      summary: Obtener productos
+      description: Obtiene todos los productos.
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Éxito al obtener todos los productos.
+          
+    post:
+      summary: Agregar un nuevo producto
+      description: Agrega un nuevo producto al sistema.
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                title:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: integer
+                category:
+                  type: string
+                thumbnail:
+                  type: string
+                owner:
+                  type: string
+      responses:
+        '201':
+          description: Producto agregado con éxito.
+        '500':
+          description: Error interno del servidor.
+        '400':
+          description: Bad request.
+  

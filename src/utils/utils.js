@@ -14,18 +14,14 @@ export const validaPass = (user, password) => bcrypt.compareSync(password, user.
 
 export const passportView = (estrategia) => function (req, res, next) {
     passport.authenticate(estrategia, function (err, user, info, status) {
-        console.log("Entro al passportView")
         if (err) {
-            console.log("Salio por el if (err)...") 
             return next(err) 
         }
         if (!user) {
-            console.log("Salio por el no hay user")
             res.setHeader('Content-Type', 'application/json');
             return res.status(500).json({ error: info.message ? info.message : info.toString() })
         }
         req.user = user
-        console.log("Va a salir del  passportView")
 
         next()
     })(req, res, next);

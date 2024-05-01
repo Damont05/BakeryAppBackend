@@ -22,10 +22,8 @@ export const m_getProducts = async (req, res) => {
     res.status(200).render('products', { products, user:req.user, estilo: "style" })
 }
 
-
 export const m_login = (req, res) => {
     let { error, mensaje } = req.query
-    console.log({ error, mensaje })
     res.setHeader('Content-Type', 'text/html')
     res.status(200).render('login', { error, mensaje, estilo: "style" })
 }
@@ -45,9 +43,7 @@ export const m_home = (req, res) => {
 export const m_getOneCart = async (req, res) => {
     let id = req.params.idc;
     try {
-        console.log("ID CARRITO: " , id);
         let cart = await cartService.m_getById_s(id);
-        console.log("RESULTADO CART: ", cart);
         if (!cart) {
             res.status(404).json("Carrito no encontrado");
         } else {
@@ -62,13 +58,9 @@ export const m_getOneCart = async (req, res) => {
 
 export const m_buyCart = async (req, res) => {
 
-    console.log("ENTRANDO AL BUYCART");
-
     let idCart = req.user.idc;
-    console.log("idCart: ", idCart);
 
     let email = req.user.email;
-    console.log("req.user.email: ", email);
 
     let cart
     try {
@@ -104,8 +96,6 @@ export const m_buyCart = async (req, res) => {
         };
 
         const nuevoTicket = await ticketModelo.create(nuevoTicketData);
-
-        console.log("nuevoTicket: ", nuevoTicket);
         
         res.setHeader('Content-Type', 'text/html')
         return res.status(200).render('tickets', {estilo:"style",

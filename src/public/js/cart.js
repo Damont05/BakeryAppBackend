@@ -34,9 +34,6 @@ const btnRest = async (idp,idc)=>{
 //btn delete
 const btnDelete = async (idp,idc)=>{
 
-    console.log('id product in cart: ' , idp);
-    console.log('id cart: ' , idc);
-
     let respuesta=await fetch("/api/cart/"+idc+"/prod/"+idp,
      {method:"delete"});
     

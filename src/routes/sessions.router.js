@@ -26,7 +26,6 @@ router.get('/errorRegister',(req,res)=>{
 
 router.post("/login", passportView('login',{failureRedirect:'/api/sessions/errorLogin'}), async(req,res)=>{
 
-    console.log("entro en login session");
     let token=jwt.sign({...req.user}, "CoderCoder123", {expiresIn:"1h"})
 
     res.cookie("codercookie", token)
@@ -45,6 +44,27 @@ router.get('/logout',(req,res)=>{
     res.clearCookie('codercookie') ;
 
     res.redirect('/login')
+});
+
+
+router.get('/github', passport.authenticate('github',{}), (req,res)=>{})
+
+router.get('/callbackGithub', passport.authenticate('github',{failureRedirect:"/api/sessions/errorGithub"}), (req,res)=>{
+    
+    console.log("ACAAAAAAA:::: " +req.user)
+    req.session.usuario=req.user
+    res.setHeader('Content-Type','application/json');
+    res.status(200).json({
+        message:"Acceso OK...!!!", usuario: req.user
+    });
+});
+
+router.get('/errorGithub',(req,res)=>{
+    
+    res.setHeader('Content-Type','application/json');
+    res.status(200).json({
+        error: "Error al autenticar con Github"
+    });
 });
 
 
@@ -102,29 +122,20 @@ router.post("/recupero03",async(req,res)=>{
         let datosToken=jwt.verify(token, "CoderCoder123")
         let usuario=await userModel.findOne({email:datosToken.email}).lean()
 
-        console.log('usuario recupero 3: ' , usuario);
         if(!usuario){
             res.setHeader('Content-Type','application/json');
             return res.status(400).json({error:`Error de usuario`})
         }
 
-        console.log('arriba del bcrypt.compareSync');
-
         if(bcrypt.compareSync(password, usuario.password)){
-            console.log('entrando en el bcrypt.compareSync');
             res.setHeader('Content-Type','application/json');
             return res.status(400).json({error:`Ha ingresado una contraseña utilizada en el pasado. No esta permitido`})
         }
 
-        console.log('ABAJO del bcrypt.compareSync');
 
-        console.log("llego 01")
         let usuarioActualizado={...usuario, password:bcrypt.hashSync(password, bcrypt.genSaltSync(10))}
-        console.log("llego 02")
 
-        console.log(usuarioActualizado)
         await userModel.updateOne({email:datosToken.email}, usuarioActualizado)
-        console.log("llego 03")
 
         //res.redirect("http://localhost:3000/index.html?mensaje=Contraseña reseteada...!!!")
         res.redirect(`/login?mensaje=Contraseña del usuario: ${usuario.email} reseteada con exito.!`)
@@ -141,9 +152,6 @@ router.post("/recupero03",async(req,res)=>{
 router.post("/:email/order/:amount", async (req, res) => {
 
     let { email, amount } = req.params
-
-    console.log(">>>>email ORDER: ", email);
-    console.log(">>>>amount ORDER: ", amount);
 
     let usuario = await userModel.findOne({ email }).lean()
     if (!usuario) {
@@ -171,7 +179,6 @@ router.post("/:email/order/:amount", async (req, res) => {
     let respuesta = await m_postEmail(email, subject, html)
 
     if (respuesta.accepted.length > 0) {
-        console.log('entrando ');
         res.redirect("/products");
         //res.render('login' , {mensaje, estilo:"style"})
     } else {

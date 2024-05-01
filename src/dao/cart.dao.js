@@ -16,7 +16,14 @@ export class CartDAO {
         try {
             return await cartModel.findOne({_id:id}).populate("products.product").lean();
         } catch (e) {
-            logger.error(e.message)
+            return null;
+        }
+    }
+
+    async get(){
+        try {
+            return await cartModel.find().lean();
+        } catch (e) {
             return null;
         }
     }
@@ -25,7 +32,6 @@ export class CartDAO {
         try {
             return await cartModel.updateOne({_id:id}, cart)
         } catch (e) {
-            console.log(e.message)
             return null
         }
     }
@@ -34,7 +40,6 @@ export class CartDAO {
         try {
             return await cartModel.deleteMany({})
         } catch (e) {
-            console.log(e.message)
             return null
         }
     }
@@ -48,7 +53,7 @@ export class CartDAO {
             return await cart.updateOne({ products : prod })
             
         } catch (e) {
-            console.log(e.message)
+         
             return false
         }
               
@@ -64,7 +69,6 @@ export class CartDAO {
             return await cart.updateOne({ products : prod })
             
         } catch (e) {
-            console.log(e.message)
             return false
         }
               

@@ -3,7 +3,6 @@ import { CustomError } from "../utils/errors.js"
 export const errorHandler = (error, req, res, next)=>{
     if(error){
         if(error instanceof CustomError){
-            console.log(`CustomError detectado: (${error.codigo}) - ${error.name}`)
             res.setHeader('Content-Type','application/json');
             return res.status(error.codigo).json({
                 error:`${error.name}: ${error.message}`,

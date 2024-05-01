@@ -1,0 +1,15 @@
+<h2>Real Time Products</h2>
+
+<a href="/">Home</a>
+<hr>
+
+<ul id="prod-list">
+    {{#each products}}
+        <li>{{this._id}} - {{this.title}}</li>
+    {{/each}}
+</ul>
+
+<script src="socket.io/socket.io.js"></script>
+<script src="js/products.js"></script>
+<!--sweetAlert js-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

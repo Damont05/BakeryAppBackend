@@ -23,6 +23,18 @@ export class productDAO {
         }
     }
 
+    static async getOne(id){
+
+        try {
+
+            let product = await productModel.findOne({_id:id}).lean();
+            return product;
+
+        } catch (error) {
+            logger.error(e);
+        }
+    }
+
     static async getProductCode(code){
         try {
             let products = await productModel.findOne( {code}).lean();

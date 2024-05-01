@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: API de de Carritos
+  version: 1.0.0
+  description: Documentación de la API carritos.
+paths:
+  /api/cart/{idc}:
+    get:
+      summary: Obtener detalle de un carrito
+      description: Obtiene los detalles de un carrito específico por su ID.
+      tags:
+        - Carts
+      parameters:
+        - in: path
+          name: cid
+          description: ID del carrito a obtener.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Éxito al obtener los detalles del carrito.
+  /api/cart/{idc}/product/{idp}:
+    post:
+      summary: Agregar un producto al carrito
+      description: Agrega un producto al carrito específico.
+      tags:
+        - Carts
+      parameters:
+        - in: path
+          name: cid
+          description: ID del carrito al que se agregará el producto.
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: pid
+          description: ID del producto que se agregará al carrito.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Producto agregado al carrito con éxito.
+  /api/cart/:idc/prod/:idp: 
+    delete:
+      summary: Eliminar un producto del carrito
+      description: Elimina un producto del carrito específico.
+      tags:
+        - Carts
+      parameters:
+        - in: path
+          name: cid
+          description: ID del carrito del que se eliminará el producto.
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: pid
+          description: ID del producto que se eliminará del carrito.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Producto eliminado del carrito con éxito.
+  /api/cart/{cid}/purchase:
+    get:
+      summary: Generar un ticket de compra
+      description: Genera un ticket de compra para el carrito especificado.
+      tags:
+        - Carts
+      parameters:
+        - in: path
+          name: cid
+          description: ID del carrito para el cual se generará el ticket.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Ticket de compra generado con éxito.

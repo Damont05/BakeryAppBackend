@@ -1,6 +1,8 @@
 import passport from "passport";
 import local from "passport-local"
 import JWT from "passport-jwt"
+import github from "passport-github2"
+import { config } from './config.js';
 
 import { userModel } from "../dao/models/users.model.js"
 import { generaHash, validaPass } from "../utils/utils.js"
@@ -85,10 +87,37 @@ export const initPassport=()=>{
         },
         async (contenidoToken, done)=>{
             try {
-                console.log("Cont.Token:",contenidoToken)
                 return done(null, contenidoToken)                
             } catch (e) {
                 return done(e)
+            }
+        }
+    ))
+
+    passport.use('github', new github.Strategy(
+        {
+            clientID:config.CLIENT_ID,
+            clientSecret:config.CLIENT_SECRET,
+            callbackURL:config.CALLBACK_URL,
+        },
+        async(accessToken, refreshToken, profile, done)=>{
+            try {
+                let usuario=await userModel.findOne({email: profile._json.email})
+                if(!usuario){
+                    let nuevoUsuario={
+                        nombre: profile._json.name,
+                        email: profile._json.email,
+                        rol: 'user', 
+                        profile
+                    }
+
+                    usuario=await userModel.create(nuevoUsuario)
+                }
+                return done(null, usuario)
+
+
+            } catch (error) {
+                return done(error)
             }
         }
     ))

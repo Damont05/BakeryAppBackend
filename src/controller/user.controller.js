@@ -14,7 +14,6 @@ export class userController{
         try {
             users = await userService.m_getUsers_s();
         } catch (e) {
-            console.log(e.message);
         }
         res.status(200).json({
             users
@@ -30,7 +29,6 @@ export class userController{
             return res.status(404).json({  ok:false, error: `fields are required`});
         }
         password=generaHash(password)
-        console.log('PASSWORD REGISTER: ',password);
 
         try {    
 
@@ -38,7 +36,6 @@ export class userController{
             res.setHeader('Content-Type','application/json');
             return res.status(200).json({ ok:true, newUser});
         } catch (e) {
-            console.log(e);
         }
     }
 
@@ -95,7 +92,6 @@ export class userController{
         let result
         try {
             result = await userModel.updateOne({user:existe, _id:id}, req.body)
-            console.log(result);
             res.setHeader('Content-Type','application/json');
             return res.status(200).json({ ok:true, payload:result});
         } catch (error) {

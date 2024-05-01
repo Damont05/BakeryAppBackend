@@ -14,7 +14,19 @@ export const getCartById = async (req, res, next) => {
     try {
         // llamar al dao.findById...
         cart = await cartService.m_getById_s(idc);
-        console.log('CART: ' + cart);
+    } catch (e) {
+        return next(e)
+    }
+    res.setHeader('Content-Type', 'application/json')
+    res.status(200).json({ cart })
+}
+
+export const getCarts = async (req, res, next) => {
+
+    let cart
+    try {
+        // llamar al dao.findById...
+        cart = await cartService.m_get_s();
     } catch (e) {
         return next(e)
     }
@@ -25,17 +37,11 @@ export const getCartById = async (req, res, next) => {
 export const addProductCart = async (req, res) => {
 
     try {
-        
         let { idc, idp } = req.params
-    
-        console.log('add prod cart - idc: ', idc);
-        console.log('add prod cart - idp: ', idp);
-    
+        
         // llamar al dao.findById...
         let cart = await cartService.m_getById_s(idc);
-    
-        console.log('add prod cart - cart: ', cart);
-    
+        
         if (!cart) {
             res.setHeader('Content-Type', 'application/json');
             return res.status(500).json({ error: `Error inesperado en el servidor - Intente más tarde, o contacte a su administrador` })
@@ -44,7 +50,6 @@ export const addProductCart = async (req, res) => {
         let productIndex = cart.products.findIndex(p => p.product._id == idp)
     
         if (productIndex !== -1) {
-            console.log('entro en la validacion');
             cart.products[productIndex].quantity++
     
         } else {
@@ -71,9 +76,6 @@ export const m_delProdCart = async (req, res) => {
     try {
 
         let { idc, idp } = req.params;
-
-        console.log('id cart: ', idc);
-        console.log('id  product: ', idp);
 
         if (!idc) {
             res.setHeader('Content-Type', 'application/json');
@@ -105,7 +107,6 @@ export const m_delProdCart = async (req, res) => {
 
         let productCartID;
         productCartID = await cartService.m_deleteProductFromCart(idc, idp);
-        console.log('productCartID ctrler: ', productCartID);
 
         res.setHeader('Content-Type', 'application/json');
         return res.status(200).json({ updateCart: cart, num: productCartID });
@@ -122,14 +123,12 @@ export const m_delProductsCart = async (req, res) => {
     let { idc } = req.params
     let productCartID;
     productCartID = await CartDAO.deleteProductsCart(idc)
-    console.log('productCartID ctrler: ', productCartID);
 
 
     res.setHeader('Content-Type', 'application/json');
     return res.status(200).json({ productCartID});
     
 }
-
 
 export const m_add_res_cant = async (req, res) => {
 
@@ -138,8 +137,6 @@ export const m_add_res_cant = async (req, res) => {
     // llamar al dao.findById...
     let cart = await cartService.m_getById_s(idc);
 
-    console.log('m_add_res_cant - cart: ', cart);
-
     if (!cart) {
         res.setHeader('Content-Type', 'application/json');
         return res.status(500).json({ error: `Error inesperado en el servidor - Intente más tarde, o contacte a su administrador` })
@@ -147,7 +144,6 @@ export const m_add_res_cant = async (req, res) => {
 
     let productIndex = cart.products.findIndex(p => p.product._id == idp)
 
-    console.log('m_add_res_cant - productIndex: ', productIndex);
 
     if (productIndex !== -1) {
       
